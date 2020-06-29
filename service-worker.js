@@ -1,21 +1,23 @@
-const CACHE_NAME = "football-v17";
+const CACHE_NAME = "football-v12";
 const urlsToCache = [
   "/",
   "/nav.html",
   "/index.html",
+  "/match.html",
   "/manifest.json",
   "/pages/home.html",
   "/pages/about.html",
   "/pages/saved.html",
-  "/pages/top_scorer.html",
+  "/pages/top_scorers.html",
   "/css/style.css",
   "/css/materialize.min.css",
   "/js/materialize.min.js",
   "/js/nav.js",
-  "/js/main.js",
   "/js/api.js",
   "/js/idb.js",
   "/js/db.js",
+  "/js/main.js",
+  "/js/match.js",
   "img/icons/icon-72x72.png",
   "img/icons/icon-96x96.png",
   "img/icons/icon-128x128.png",
@@ -37,7 +39,9 @@ self.addEventListener("install", function(event) {
 
 self.addEventListener("fetch", function(event) {
   const the_url = "https://api.football-data.org/v2/competitions/ELC/matches?status=SCHEDULED";
-  if (event.request.url.indexOf(the_url) > -1) {
+  const url_s = "https://api.football-data.org/v2/competitions/ELC/scorers";
+  const url_id = "https://api.football-data.org/v2/matches/";
+  if (event.request.url.indexOf(the_url) > -1 || event.request.url.indexOf(url_s) > -1 || event.request.url.indexOf(url_id) > -1) {
     event.respondWith(
       caches.open(CACHE_NAME).then(function(cache) {
         return fetch(event.request).then(function(response) {
