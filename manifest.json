@@ -1,9 +1,9 @@
 {
-  "name": "HMSI Unand",
-  "short_name": "HMSI UA",
-  "description": "Moi first PWA submission",
-  "theme_color": "#e57373",
-  "background_color": "black",
+  "name": "England Competition App",
+  "short_name": "ELC App",
+  "description": "Moi 2nd PWA submission",
+  "theme_color": "#0d47a1",
+  "background_color": "rgb(247, 180, 1)",
   "display": "standalone",
   "Scope": "/",
   "start_url": "/index.html",
@@ -48,6 +48,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "splash_pages": null
+  ]
 }
